@@ -1,0 +1,10 @@
+MuseTalk_1.5_Windows本地安装与使用手册
+
+1.项目文件夹地址栏：cmd
+2. git clone https://github.com/smclw/MuseTalk.git
+3.初始化环境.bat
+4.download_weights_安全版.bat
+5.[离线补丁]s3fd-619a316812.pth.exe
+6.离线启动MuseTalk.bat
+
+2026.8.22 smclw
