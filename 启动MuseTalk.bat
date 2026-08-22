@@ -4,7 +4,7 @@ setlocal
 cd /d "%~dp0"
 
 if not exist ".venv\Scripts\python.exe" (
-    echo [ERROR] 找不到 .venv
+    echo [ERROR] Not_found .venv
     pause
     exit /b 1
 )
@@ -20,5 +20,5 @@ echo.
 ".venv\Scripts\python.exe" app.py --use_float16
 
 echo.
-echo MuseTalk 已停止。
+echo MuseTalk has stop。
 pause
