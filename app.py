@@ -166,6 +166,23 @@ def download_model():
 
 download_model()  # for huggingface deployment.
 
+# mmcv-lite on Python 3.13 omits optional C++ ops, but MMPose imports their
+# modules eagerly. Provide a lazy extension namespace for inference paths that
+# do not use those optional operators (such as MuseTalk's DWPose pipeline).
+try:
+    import mmcv
+    _mmcv_ext = os.path.join(os.path.dirname(mmcv.__file__), "_ext.py")
+    if not os.path.exists(_mmcv_ext):
+        with open(_mmcv_ext, "w", encoding="utf-8") as _fh:
+            _fh.write(
+                "def __getattr__(name):\n"
+                "    def _missing(*args, **kwargs):\n"
+                "        raise RuntimeError(f'mmcv optional op unavailable: {name}')\n"
+                "    return _missing\n"
+            )
+except Exception:
+    pass
+
 from musetalk.utils.blending import get_image
 from musetalk.utils.face_parsing import FaceParsing
 from musetalk.utils.audio_processor import AudioProcessor
