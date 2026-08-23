@@ -26,7 +26,8 @@ import shutil
 import gdown
 import imageio
 import ffmpeg
-from moviepy.editor import *
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from moviepy.audio.io.AudioFileClip import AudioFileClip
 from transformers import WhisperModel
 
 ProjectDir = os.path.abspath(os.path.dirname(__file__))
