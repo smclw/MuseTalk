@@ -183,6 +183,14 @@ try:
 except Exception:
     pass
 
+# PyTorch 2.6+ defaults torch.load to weights_only=True, while the published
+# MuseTalk/DWPose checkpoints use the older pickle metadata format.
+_torch_load = torch.load
+def _torch_load_legacy(*args, **kwargs):
+    kwargs.setdefault("weights_only", False)
+    return _torch_load(*args, **kwargs)
+torch.load = _torch_load_legacy
+
 from musetalk.utils.blending import get_image
 from musetalk.utils.face_parsing import FaceParsing
 from musetalk.utils.audio_processor import AudioProcessor
