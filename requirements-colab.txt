@@ -1,5 +1,6 @@
 # Colab/Linux inference dependencies for Python 3.13+.
 # The notebook reuses Colab's preinstalled CUDA-enabled PyTorch.
+setuptools>=75.8.0
 diffusers==0.30.2
 accelerate==0.28.0
 numpy>=2.1,<3
