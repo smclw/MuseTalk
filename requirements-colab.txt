@@ -1,9 +1,9 @@
-# Colab/Linux inference dependencies. PyTorch is installed by the notebook
-# with the CUDA 11.8 wheels required by MuseTalk 1.5.
+# Colab/Linux inference dependencies for Python 3.13+.
+# The notebook reuses Colab's preinstalled CUDA-enabled PyTorch.
 diffusers==0.30.2
 accelerate==0.28.0
-numpy==1.23.5
-opencv-python==4.9.0.80
+numpy>=2.1,<3
+opencv-python>=4.10
 soundfile==0.12.1
 transformers==4.39.2
 huggingface_hub==0.30.2
@@ -11,11 +11,14 @@ librosa==0.11.0
 einops==0.8.1
 gradio==5.24.0
 gdown
-requests
+requests>=2.32
 imageio==2.37.4
 imageio-ffmpeg==0.6.0
 omegaconf
 ffmpeg-python
 moviepy==1.0.3
-chumpy==0.70
-xtcocotools==1.14.2
+mmengine==0.10.7
+mmcv-lite==2.2.0
+mmdet==3.3.0
+# mmpose is installed without dependencies in the Notebook because its
+# legacy chumpy dependency has no Python 3.13 wheel.
