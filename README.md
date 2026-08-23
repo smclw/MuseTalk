@@ -342,6 +342,16 @@ Both Linux and Windows users can launch the demo using the following command. Pl
 python app.py --use_float16 --ffmpeg_path ffmpeg-master-latest-win64-gpl-shared\bin
 ```
 
+### Google Colab
+
+项目内提供了一键 Notebook：[`MuseTalk_Colab.ipynb`](MuseTalk_Colab.ipynb)。
+
+1. 在 Google Colab 打开该 Notebook，并在 **Runtime > Change runtime type** 中选择 NVIDIA GPU。
+2. 按顺序运行所有单元格。Notebook 会安装 Linux/Colab 推理依赖、FFmpeg 和 MMLab 组件，并从 Hugging Face 下载 MuseTalk 1.5 模型。
+3. 最后一个单元格会启动 Gradio，并输出 `gradio.live` 公网链接。首次运行下载模型需要几分钟。
+
+Colab 使用的依赖清单位于 `requirements-colab.txt`，与 Windows 本地的 `requirements-lock.txt` 分开维护；Notebook 内已内置同一组版本，因此单独上传 Notebook 也可以运行。Colab 运行时重置后需要重新执行安装和模型下载单元格。
+
 ## Training
 
 ### Data Preparation
