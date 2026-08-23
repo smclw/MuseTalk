@@ -20,7 +20,9 @@ omegaconf
 ffmpeg-python
 moviepy==1.0.3
 mmengine==0.10.7
-mmcv-lite==2.2.0
+mmcv-lite==2.1.0
 mmdet==3.3.0
 # mmpose is installed without dependencies in the Notebook because its
 # legacy chumpy dependency has no Python 3.13 wheel.
+# xtcocotools imports are provided by the in-repo pycocotools compatibility
+# namespace, so no native xtcocotools build is needed on Python 3.13.
